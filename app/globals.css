@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #F4EFE6;
+  --ink: #1C1C1C;
+  --ink-faint: #9A9490;
+  --blue: #1E3AFF;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Cormorant Garamond', serif;
+}
+
+* { cursor: none !important; }
+
+.wake {
+  position: fixed;
+  pointer-events: none;
+  z-index: 7;
+  border-radius: 50%;
+  border: 1px solid rgba(30, 58, 255, 0.15);
+  transform: translate(-50%, -50%) scale(0);
+  animation: wake-expand 1.3s ease-out forwards;
+}
+
+@keyframes wake-expand {
+  0%   { transform: translate(-50%, -50%) scale(0); opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in { opacity: 0; animation: fadeIn 0.9s ease forwards; }
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.5s; }
+.delay-3 { animation-delay: 0.8s; }
+
+@keyframes pulse { 0%,100%{opacity:0.4} 50%{opacity:0.9} }
